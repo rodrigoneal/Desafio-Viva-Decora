@@ -21,7 +21,6 @@ class GitHub:
         """Inicializador da classe."""
         self.base_url = "https://github.com/"
         self.repositorio = ""
-        self.links = []  # Salva todas as urls da
         self.file_txt = file_txt
         self.path = ""
         self.dados = []
@@ -40,7 +39,7 @@ class GitHub:
         soup = BeautifulSoup(get.text, "html.parser")
         return soup
 
-    def request_all_links(self, path=""):
+    def request_all_links(self):
         """Navega por toda a pagina de forma recursiva pegando todos os urls."""
         soup = self.request(self.path)
         if self.path.startswith("blob"):
@@ -66,11 +65,11 @@ class GitHub:
             for file in files.readlines():
                 self.repositorio = file.strip()
                 self.request_all_links()
+                print(self.dados)
                 sum_dict = sum_value_dict(self.dados, self.filter)
                 save_as_column(self.repositorio, sum_dict)
                 save_tree_structure(self.repositorio, self.diretorio)
                 self.diretorio.clear()
-                self.links.clear()
                 self.dados.clear()
                 self.path = ""
 
@@ -78,7 +77,7 @@ class GitHub:
 if __name__ == "__main__":
     from time import time
 
-    git = GitHub("teste.txt")
+    git = GitHub("repositorios.txt")
     inicio = time()
     git.main()
 
