@@ -1,77 +1,132 @@
-# Desafio-Viva-Decora
 
-<h2 style="text-align: center" xmlns="http://www.w3.org/1999/html">  Bem Vindo a documentação do Web Scraping. <h2/>
-<p style="margin: 0; padding: 0">Para instalar basta clonar ou baixar o repositorio </p>
-<br /> <em>  https://github.com/rodrigoneal/Desafio-Viva-Decora </em><br/>
-Crie um arquivo com o nome <b>repositorios.txt</b> e coloque os repositorios um embaixo do outro 
-<br/>  
-<div style="align-content: center"> Ex: <ul style="list-style-type: none;"> <li>frontpressorg/frontpress</li> <br/>
-           <li>SambitAcharya/Mini-Projects</li></ul>
-<p> Obs: Sem espaço ou acentos e só coloque barra entre o nome do usuario do autor e o nome do projeto</p>
+# Desafio-Viva-Decora  
+  
+### Bem Vindo a documentação do Web Scraping. 
 
-</div>
+## Como Instalar:
 
-<h2 style="text-align: center"> API </h2>
+    pip install git+https://github.com/rodrigoneal/Desafio-Viva-Decora.git#egg=web-scraping
 
-<div>
-<h2>
-Web Scraping.py
-</h2>
+## Como Usar:
 
-<h3>  <p>Classe GitHub: </p></h3>
+    from github.web_scraping import GitHub
+    
+    git = GitHub("repositorios.txt")
+    git.main(verbose=True)
+Importe a classe GitHub que fica dentro do pacote github.web_scraping. 
+A classe recebe um parâmetro obrigatório que é o arquivo txt com a lista de repositórios do github que serão 
+*crawlada*.
 
-<h4>  <code>def __init__(file_txt): </code> <br /></h4>
-<p>Metodo que inicializa a classe GitHub</p>
-<p>Parametro: <em>file.txt</em> TIPO:FileIO- Arquivo txt com a lista de repositorios que serão varridos</p>
+O método  `main(verbose=False)` recebe um parâmetro booleano posicional opcional *verbose* por default=False. Coloque `True` para que o programa imprima no terminal as URLs das pastas e arquivos que estão sendo *crawlado*.
 
-<p>Variaveis: <code>self.url = "https://github.com/"</code><b>TIPO:</b>str - Variveis de instancia da classe GitHub que armazena a url base do github.</p>
+    https://github.com/frontpressorg/frontpress/blob/master/.editorconfig
+    https://github.com/frontpressorg/frontpress/blob/master/.gitignore
+    https://github.com/frontpressorg/frontpress/blob/master/.jshintignore
+    https://github.com/frontpressorg/frontpress/blob/master/.jshintrc
+    https://github.com/frontpressorg/frontpress/blob/master/.nvmrc
+    https://github.com/frontpressorg/frontpress/blob/master/.travis.yml
+    https://github.com/frontpressorg/frontpress/blob/master/LICENSE.md
+    https://github.com/frontpressorg/frontpress/blob/master/README.md
+    https://github.com/frontpressorg/frontpress/blob/master/bower.json
+    https://github.com/frontpressorg/frontpress/blob/master/contributing.md
+    https://github.com/frontpressorg/frontpress/blob/master/deploy_key.enc
+    https://github.com/frontpressorg/frontpress/blob/master/frontpress.json.v1.sample
+    https://github.com/frontpressorg/frontpress/blob/master/frontpress.json.v2.sample
+    https://github.com/frontpressorg/frontpress/blob/master/gulpfile.js
+    https://github.com/frontpressorg/frontpress/blob/master/karma.conf.js
+    https://github.com/frontpressorg/frontpress/blob/master/package.json
 
-<p>Variaveis: <code>self.repositorio = ""</code><b>TIPO:</b>str - Variveis de instancia da classe GitHub que armazena a url do 
-repositorio do GitHub que é concatenado com a <code>self.base_url</code>.
-Exemplo: https://github.com/<b><em>frontpressorg/frontpress</em></b>
-</p>
-<p>Variaveis: <code>self.file_txt = file_txt</code> <b>TIPO:</b>FileIO - Variveis de instancia da classe GitHub que armazena o nome do arquivo txt
-que será usado pelo programa.
-</p>
+Se for `False` ele apenas irá imprimir o repositório que está sendo *crawlado* na hora.
 
-<p>Variaveis: <code>self.dados = []</code> <b>TIPO:</b>list - Variveis de instancia da classe GitHub que armazena uma lista com os dados dos <em>arquivos</em>
- já formatado. <br>
- <br>A formataçã é feita pela função get_data_file</p>
- <br>Obs: Arquivo é o arquivo pego dentro do GitHub exemplo: hoteis_api/hotel/app.py O app.py é um arquivo </p>
-
-<p>Variaveis: <code>self.filter = ["gitignore", "Dockerfile", "Makefile"]</code> - Variveis de instancia da classe GitHub que armazena uma lista com as extensões que não serão
-listado e listado como outro
-</p>
-<p>Variaveis: <code>self.diretorio</code> - Variveis de instancia da classe GitHub que armazena uma lista dicionario dentro com dados que serão gravados no arquivo txt</p>
+    rodrigoneal/hoteis_api
 
 
-<h3>  <p><code>request(path="")</code></p></h3>
-<p>Metodo que faz uma requisição GET no site do github e retorna um objeto do tipo BeautifulSoup </p>
-<p>Parametro: <em>path</em> TIPO:str - string com a url da pasta/arquivo que forma o link absoluto da pagina <br>
-Exemplo: https://github.com/rodrigoneal/hoteis_api<b>/blob/master/hotel/app.py</b>
-</p>
+#### Formatação do arquivo txt
+Obrigatoriamente o arquivo precisa terminar com  .txt e formatado da seguinte maneira:
 
-<h3>  <p><code>request_all_links()</code></p></h3>
-<p>Metodo que navega por todas as pastas e arquivos de forma recursiva <br />
+    rodrigoneal/hoteis_api  
+    SambitAcharya/Mini-Projects  
+    frontpressorg/frontpress
 
-<h3>  <p><code>main()</code></p></h3>
-<p>Metodo principal que inicia o programa <br />
+Só utilize "/" entre o nome do usuário e o nome do repositório, evite colocar espaços desnecessários.
 
 
-</p>
-</div>
+# API 
+  
 
-<div>
-<h2>parse_data</h2>
+Arquivo: *web-scraping.py*  
+
+  
+#### Classe GitHub: 
+  
+
+   #### `def __init__(file_txt):`
+
+Método que inicializa a classe GitHub
+**Parametro**: file.txt;  **Tipo**:FileIO- Arquivo txt com a lista de repositórios que serão varridos 
+  
+**Variável**: `self.url = "https://github.com/"`; **Tipo**:str - Variável de instância da classe GitHub que armazena a url base do github.
+  
+**Variável**: `self.repositorio = ""`; **Tipo**: str - Variável de instância da classe GitHub que armazena a url do   
+repositorio do GitHub que é concatenado com a self.base_url
+Exemplo: `https://github.com/frontpressorg/frontpress`  
+
+**Variável**: `self.file_txt = file_txt`; **Tipo**:FileIO - Variável de instância da classe GitHub que armazena o nome do arquivo .txt  que é usado pela classe GitHub.  
+
+  
+**Variável**: `self.dados = []`; **Tipo**:list - Variável de instância da classe GitHub que armazena uma lista com os dados dos arquivos já formatado.  
+
+Obs: 
+
+*Arquivo é o arquivo pego dentro do GitHub exemplo: "hoteis_api/hotel/app.py". O app.py é um arquivo*
+ 
+  
+**Variável**: `self.filter = ["gitignore", "Dockerfile", "Makefile"]`;  **Tipo**:list- Variável de instância da classe GitHub que armazena uma lista com as extensões que não serão  
+listado e listado como outro  
+
+**Variável**: `self.diretorio=[]`; **Tipo**:list - Variável de instância da classe GitHub que armazena uma lista de dicionários com os dados que serão gravados no arquivo .txt
+  
+  
+
+   #### `request(path="")`
+
+Método que faz uma requisição GET no site do github e retorna um objeto do tipo *BeautifulSoup* 
+**Parâmetro**: path="" **Tipo**:str- string com a url da pasta ou arquivo que forma o link absoluto da pagina 
+
+Exemplo: 
+Link relativo ao arquivo app.py : `blob/master/hotel/app.py`
+Link absoluto do arquivo app.py: `https://github.com/rodrigoneal/hoteis_api/blob/master/hotel/app.py`
 
 
-<h3> <code>sum_value_dict(list_to_parser, filter) </code> <br /></h3>
-<p>Função que pega uma lista com dicionario e soma os valores de dentro dessa lista filtrando suas extensões <br>
-Exemplo: Entrada: <code>[['py', (5, 5)], ['py', (5, 5)]]</code> Saida: <code>[{'py':(10, 10)}]</code>
-</p>
-<p>Parametro: <em>list_to_parser</em> TIPO:List- L</p>
+#### `request_all_links()`
+Método que navega por todas as pastas e arquivos de forma recursiva.
+Ele é o core da aplicação pois pega todos os links e dentro dentro há chamadas de outras funções e métodos que dão vida ao programa.
+  
+#### `main()`
+Método inicia o programa
+**Parâmetro**: `verbose=True` **Tipo**:boolean- **Default**=False Esse parâmetro indica se o programa deverá imprimir todos 
+as URLs que o programa está percorrendo em tempo real.
+
+Arquivo parse_data.py
+  
+  
+#### `sum_value_dict(list_to_parser, filter)` 
+Função que pega uma lista com dicionário e tupla. Soma os valores de dentro dessa lista filtrando suas extensões 
+Exemplo: 
+Entrada >>> `[['py', (5, 5)], ['py', (5, 5)]]` Saída >>>`[{'py':(10, 10)}]` 
+
+**Parâmetro**: `list_to_parser` **Tipo**:list- Lista com os arquivos que serão somados e filtrados. 
+
+**Parâmetro**: `filter` **Tipo**:list- Lista com os arquivos que deverão ser ignorados e armazenados como outros . 
+
+#### `get_data_file(soup)`
+Função que pega os arquivos da URL e extrai o a extensão, numero de linhas e quantidade de bytes do arquivo
+
+    extensão:save.py, numero de linhas: 59, bytes: 2.24
+
+Obs: Quando eu falo arquivo é a URL que contem o programa em si, exemplo .py, .js .php. 
+Obs: Ele salva converte esses dados de numero de linhas e quantidade de bytes para `int`
 
 
 
 
-</div>
