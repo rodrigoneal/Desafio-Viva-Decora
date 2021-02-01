@@ -9,9 +9,9 @@ Date: 1/02/2021
 import httpx
 from bs4 import BeautifulSoup
 
-from github.save import save_as_column, save_tree_structure
-from github.parser import sum_value_dict, get_data_file
-from github.clear_code import normalize_file
+from save import save_as_column, save_tree_structure
+from parse_data import sum_value_dict, get_data_file
+from clear_code import normalize_file
 
 
 class GitHub:
