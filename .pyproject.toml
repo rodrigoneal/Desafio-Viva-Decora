@@ -11,4 +11,4 @@ exclude = '''
 '''
 
 [build-system]
-requires = ["beautifulsoup4", "httpx", "wheel"]
+requires = ["beautifulsoup4", "httpx"]
