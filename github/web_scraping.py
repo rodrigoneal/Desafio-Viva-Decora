@@ -9,9 +9,9 @@ Date: 1/02/2021
 import httpx
 from bs4 import BeautifulSoup
 
-from save import save_as_column, save_tree_structure
-from parse_data import sum_value_dict, get_data_file
-from clear_code import normalize_file
+from github.save import save_as_column, save_tree_structure
+from github.parse_data import sum_value_dict, get_data_file
+from github.clear_code import normalize_file
 
 
 class GitHub:
@@ -26,6 +26,7 @@ class GitHub:
         self.dados = []
         self.filter = ["gitignore", "Dockerfile", "Makefile"]
         self.diretorio = []
+        self.verbose = False
 
     def request(self, path: str = ""):
         """
@@ -35,7 +36,8 @@ class GitHub:
         """
         url = f"{self.base_url}{self.repositorio}/{path}"
         get = httpx.get(url)
-        print(get.url)
+        if self.verbose:
+            print(get.url)
         soup = BeautifulSoup(get.text, "html.parser")
         return soup
 
@@ -59,27 +61,16 @@ class GitHub:
                 self.path = "/".join(_split)
                 self.request_all_links()
 
-    def main(self):
+    def main(self, verbose=False):
         """Metodo que inicializa a programa."""
         with open(self.file_txt, "r") as files:
             for file in files.readlines():
+                self.verbose = verbose
                 self.repositorio = file.strip()
                 self.request_all_links()
-                print(self.dados)
                 sum_dict = sum_value_dict(self.dados, self.filter)
                 save_as_column(self.repositorio, sum_dict)
                 save_tree_structure(self.repositorio, self.diretorio)
                 self.diretorio.clear()
                 self.dados.clear()
                 self.path = ""
-
-
-if __name__ == "__main__":
-    from time import time
-
-    git = GitHub("repositorios.txt")
-    inicio = time()
-    git.main()
-
-    fim = time()
-    print(fim - inicio)
