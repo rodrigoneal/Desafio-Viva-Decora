@@ -1,0 +1,14 @@
+[tool.black]
+line-length = 50
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \venv
+)/
+'''
+
+[build-system]
+requires = ["beautifulsoup4", "httpx", "wheel"]

@@ -1,17 +1,27 @@
-from operator import itemgetter
+# mypy: ignore-errors
+"""
+Esse script é usado para fazer o parser dos arquivos do projeto.
+
+Author: Rodrigo Castro
+Date: 1/02/2021
+"""
+from typing import List, Dict, Tuple, Any
 
 
-def sum_value_dict(list_to_parser:list[dict], filter:list[str]) -> list[dict[str,tuple[int,int]]]:
+def sum_value_dict(
+    list_to_parser: List[dict], filter: List[str]
+) -> Dict[str, Tuple[Any]]:
     """
-    Soma os valores  e salva num dicionario
+    Soma os valores  e salva num dicionario.
+
     :param list_to_parser: list
     :param filter:list
     :return list
     """
-    temp_dict = {}
+    temp_dict: Dict[str, Tuple] = {}
     for key, value in list_to_parser:
         if key in filter:
-            key = 'outros'
+            key = "outros"
         if key in temp_dict:
             temp_dict[key] = [x + y for x, y in zip(temp_dict[key], value)]
         else:
@@ -19,12 +29,12 @@ def sum_value_dict(list_to_parser:list[dict], filter:list[str]) -> list[dict[str
     return temp_dict
 
 
-def get_data_file(soup:object) -> tuple[str, tuple[int, int]]:
+def get_data_file(soup: object) -> Tuple[str, tuple[int, int]]:
     """
-         Extrai as informações da pagina com a extensão, a quantidade de linhas e a quantidade de byte do arquivo
-         passa essas informações pra serem salvas dentro de um dicionario e salva dentro de uma lista
-         :param soup: object BeautifulSoup
-         """
+    Extrai as informações da pagina com a extensão, a quantidade de linhas e a quantidade de byte do arquivo.
+
+    :param soup: object BeautifulSoup
+    """
     div = soup.find("div", {"class": "text-mono"}).text.strip()
     extensao = soup.find("strong", {"class": "final-path"}).text.split(".")[-1]
     lines = div.split(" ")
@@ -37,7 +47,3 @@ def get_data_file(soup:object) -> tuple[str, tuple[int, int]]:
             linha_byte = 0, 0
     result = extensao, linha_byte
     return result
-
-# dados = [('py', (0, 0)), ('py', (13, 481)), ('py', (12, 259)), ('py', (10, 185)), ('py', (15, 417)), ('py', (7, 104)), ('py', (0, 0)), ('py', (39, 1)), ('py', (55, 1)), ('py', (0, 0)), ('py', (97, 3)), ('py', (83, 2)), ('py', (0, 0)), ('py', (25, 758)), ('py', (0, 0)), ('py', (9, 192)), ('db', (24, 24)), ('py', (1, 18)), ('py', (0, 0)), ('py', (69, 1)), ('toml', (16, 173)), ('gitignore', (1, 6)), ('txt', (11, 203)), ('toml', (21, 454))]
-# a = sum_value_dict(dados, 'filter')
-# print(a)
