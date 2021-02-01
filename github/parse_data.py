@@ -9,7 +9,7 @@ from typing import List, Dict, Tuple, Any
 
 
 def sum_value_dict(
-    list_to_parser: List[dict], filter: List[str]
+    list_to_parser: List[tuple[str, tuple[int]]], filter: List[str]
 ) -> Dict[str, Tuple[Any]]:
     """
     Soma os valores  e salva num dicionario.
