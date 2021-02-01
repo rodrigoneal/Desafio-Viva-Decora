@@ -22,14 +22,14 @@ def sum_value_dict(
     for key, value in list_to_parser:
         if key in filter:
             key = "outros"
-        if key in temp_dict:
-            temp_dict[key] = [x + y for x, y in zip(temp_dict[key], value)]
-        else:
+        if key not in temp_dict:
             temp_dict[key] = value
+        else:
+            temp_dict[key] = [x + y for x, y in zip(temp_dict[key], value)]
     return temp_dict
 
 
-def get_data_file(soup: object) -> Tuple[str, tuple[int, int]]:
+def get_data_file(soup: Any) -> Tuple[str, tuple[int, int]]:
     """
     Extrai as informações da pagina com a extensão, a quantidade de linhas e a quantidade de byte do arquivo.
 
