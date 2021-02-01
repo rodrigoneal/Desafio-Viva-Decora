@@ -5,12 +5,10 @@ Esse script é usado para refinar os dados do aplicativo.
 Author: Rodrigo Castro
 Date: 1/02/2021
 """
-from typing import Tuple, Dict, Union, Mapping
+from typing import Tuple, Mapping
 
 
-def normalize_file(
-    url: str, data: Tuple[str, int, int] = None
-) -> Mapping[str, int]:
+def normalize_file(url: str, data: Tuple[str, int, int] = None) -> Mapping[str, int]:
     """
     Trata os dados para facilitar na hora de salvar o arquivo.
 
