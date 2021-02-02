@@ -13,7 +13,8 @@ pip install git+https://github.com/rodrigoneal/Desafio-Viva-Decora.git#egg=git-s
 ## <center>Como Usar:</center>  
 ```
 from github.web_scraping import GitHub
-git = GitHub("repositorios.txt") git.main(verbose=True)    
+git = GitHub("repositorios.txt") 
+git.main(verbose=True)    
 ```
 Importe a classe GitHub que fica dentro do pacote github.web*scraping. A classe recebe    
 um parâmetro obrigatório que é o arquivo txt com a lista de repositórios do github que    
@@ -118,13 +119,13 @@ o programa está percorrendo em tempo real.
   
 ## Arquivo: `parse_data.py`  
   
-#### `sum_value_dict(list_to_parser, filter)`  
+#### `sum_value_dict(list_to_parser, filter_value)`  
   
 Função que pega uma lista com dicionário e tupla. Soma os valores de dentro dessa  
 lista    
 filtrando suas extensões Exemplo: Entrada >>> `[['py', (5, 5)], ['py', (5, 5)]]` Saída >>>`[{'py':(10, 10)}]` **Parâmetro**: `list_to_parser` **Tipo**:list- Lista com os  
 arquivos que serão somados e    
-filtrados. **Parâmetro**: `filter` **Tipo**:list- Lista com os arquivos que deverão  
+filtrados. **Parâmetro**: `filter_value` **Tipo**:list- Lista com os arquivos que deverão  
 ser    
 ignorados e armazenados como outros .  
   
