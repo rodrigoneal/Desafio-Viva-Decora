@@ -5,7 +5,6 @@ Author: Rodrigo Castro
 Date: 1/02/2021
 """
 
-
 import httpx
 from bs4 import BeautifulSoup
 
@@ -104,3 +103,8 @@ class GitHub:
                 self.diretorio.clear()
                 self.dados.clear()
                 self.path = ""
+
+
+if __name__ == "__main__":
+    git = GitHub("repositorios.txt")
+    git.main(True)
