@@ -36,7 +36,6 @@ def save_as_column(
     repository: str, path_dict: dict
 ) -> None:
     """Cria um arquivo txt se não existir, com nome do repositorio e grava as extensões."""
-    print(path_dict)
     with open(
         f'Project {repository.replace("/", "_")}.txt',
         "a",
