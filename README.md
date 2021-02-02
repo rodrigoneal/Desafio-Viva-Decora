@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.com/rodrigoneal/Desafio-Viva-Decora.svg?branch=master)](https://travis-ci.com/rodrigoneal/Desafio-Viva-Decora)  
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c754d27e89014840b641f3491430f2f4)](https://www.codacy.com/gh/rodrigoneal/Desafio-Viva-Decora/dashboard?utm_source=github.com&utm_medium=referral&utm_content=rodrigoneal/Desafio-Viva-Decora&utm_campaign=Badge_Grade)  
   
-### Bem Vindo a documentação do Web Scraping.  
+### Bem Vindo a documentação do Web Scraping 
   
 ## <center>Como Instalar:</center>  
   
@@ -44,7 +44,7 @@ Se for `False` ele apenas irá imprimir o repositório que está sendo _crawlado
   
 rodrigoneal/hoteis_api  
   
-#### Formatação do arquivo txt  
+#### Como formatar o arquivo com os repositórios 
   
 Obrigatoriamente o arquivo precisa terminar com .txt e formatado da seguinte maneira:  
   
@@ -54,11 +54,11 @@ desnecessários.
   
 # <center>API </center>  
   
-## Arquivo: `web-scraping.py`  
+## Arquivo: `web-scraping`  
   
-### Classe GitHub:  
+### Classe GitHub
   
-#### `def __init__(file_txt):`  
+#### `def __init__(file_txt)`  
   
 Método que inicializa a classe GitHub **Parametro**: file.txt; **Tipo**:FileIO-  
 Arquivo    
@@ -81,7 +81,7 @@ que armazena uma lista com os dados dos arquivos já formatado.
   
 Obs:  
   
-*Arquivo é o arquivo pego dentro do GitHub exemplo: "hoteis_api/hotel/app.py". O app.py é um arquivo*  
+Arquivo é o arquivo pego dentro do GitHub exemplo: `hoteis_api/hotel/app.py`. O app.py é um arquivo
   
 **Variável**: `self.filter = ["gitignore", "Dockerfile", "Makefile"]`; **Tipo**:list-    
 Variável de instância da classe GitHub que armazena uma lista com as extensões que não    
@@ -211,8 +211,8 @@ do
 total do projeto no formato .txt.  
   
 
-     Extensão      |    Linhas     |         Bytes  
-    py             |   435   (86 %)|2422(74 %)   
+     Extensão     |    Linhas     |         Bytes  
+    py             |   435    (86 %)|2422(74 %)   
     toml           |    37    (7 %)|627(19 %)   
     db             |    24    (5 %)|24(1 %)   
     txt            |    11    (2 %)|203(6 %)   
