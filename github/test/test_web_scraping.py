@@ -1,11 +1,16 @@
 """Testa o programa."""
 import unittest
 from github.clear_code import normalize_file
-from github.parse_data import sum_value_dict  # type: ignore
+from github.parse_data import sum_value_dict, get_data_file  # type: ignore
+from github.web_scraping import GitHub
 
 
 class TestGitHub(unittest.TestCase):
     """Classe que herda o TestCase."""
+
+    def setUp(self):
+        """Metodo que prepara um fixture."""
+        self.git = GitHub("repositorios.txt")
 
     def test_se_normalize_retorna_um_dict(self):
         """Testa se a função normalize_file retorna um dict."""
@@ -45,6 +50,34 @@ class TestGitHub(unittest.TestCase):
                 list_to_parser, filter
             ),
             {"outros": [10, 20]},
+        )
+
+    def test_se_get_data_file_retorna_um_tupla(
+        self,
+    ):
+        """Testa se o get_data_file está retornando uma tupla."""
+        self.git.repositorio = (
+            "rodrigoneal/Desafio-Viva-Decora"
+        )
+        soup = self.git.request(
+            "blob/master/github/__init__.py"
+        )
+        self.assertIsInstance(
+            get_data_file(soup), tuple
+        )
+
+    def test_se_get_data_file_retorna_os_valores_da_pagina(
+        self,
+    ):
+        """Teste se o get_data_file está pegando os valores certos da pagina."""
+        self.git.repositorio = (
+            "rodrigoneal/Desafio-Viva-Decora"
+        )
+        soup = self.git.request(
+            "blob/master/github/__init__.py"
+        )
+        self.assertEqual(
+            get_data_file(soup), ("py", (6, 107))
         )
 
 
