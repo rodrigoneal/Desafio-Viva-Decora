@@ -4,10 +4,7 @@ python: 3.7
 
 install:
   - pip install -r requirements.txt
-  - pip install flake8
 
-before_script:
-  - flake8 --count --exclude ./test --ignore E402,F401,E501
 script:
   - python -m unittest github.test.test_web_scraping
 
