@@ -72,13 +72,13 @@ class TestGitHub(unittest.TestCase):
     ):
         """Teste se o get_data_file está pegando os valores certos da pagina."""
         self.git.repositorio = (
-            "rodrigoneal/Desafio-Viva-Decora"
+            "rodrigoneal/hoteis_api"
         )
         soup = self.git.request(
-            "blob/master/github/__init__.py"
+            "blob/master/hotel/app.py"
         )
         self.assertEqual(
-            get_data_file(soup), ("py", (5, 116))
+            get_data_file(soup), ("py", (9, 192))
         )
 
 
