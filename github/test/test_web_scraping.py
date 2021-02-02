@@ -1,7 +1,9 @@
 """Testa o programa."""
+import os
 import unittest
 from github.clear_code import normalize_file
 from github.parse_data import sum_value_dict, get_data_file  # type: ignore
+from github.save import save_tree_structure
 from github.web_scraping import GitHub
 
 
@@ -11,6 +13,11 @@ class TestGitHub(unittest.TestCase):
     def setUp(self):
         """Metodo que prepara um fixture."""
         self.git = GitHub("repositorios.txt")
+
+    def tearDown(self):
+        arquivo = 'Project rodrigoneal_hoteis_api.txt'
+        if os.path.exists(arquivo):
+            os.remove(arquivo)
 
     def test_se_normalize_retorna_um_dict(self):
         """Testa se a função normalize_file retorna um dict."""
@@ -84,6 +91,14 @@ class TestGitHub(unittest.TestCase):
         self.assertEqual(
             get_data_file(soup), ("py", (9, 192))
         )
+    def test_se_save_tree_structure_cria_arquivo(self):
+        """Testar se o função está gravando no arquivo"""
+        repositorio = self.git.repositorio = 'rodrigoneal/hoteis_api'
+        path_data = [{'nome': 'hotel', 'url': 'tree/master/hotel', 'ext': '', 'linhas': '', 'byte': ''}]
+        save_tree_structure(repositorio, path_data)
+        self.assertTrue(os.path.exists('Project rodrigoneal_hoteis_api.txt'))
+
+
 
 
 if __name__ == "__main__":
