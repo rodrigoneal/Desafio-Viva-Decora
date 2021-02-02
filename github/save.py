@@ -1,9 +1,4 @@
-"""
-Esse script é usado para criar e gravar os dados do web scraping.
-
-Author: Rodrigo Castro
-Date: 1/02/2021
-"""
+"""Esse script é usado para criar e gravar os dados do web scraping."""
 
 
 def save_tree_structure(
