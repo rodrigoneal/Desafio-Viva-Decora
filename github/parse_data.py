@@ -9,7 +9,7 @@ from typing import List, Dict, Tuple, Any, Union
 
 
 def sum_value_dict(
-    list_to_parser: List[Tuple[str, Tuple[int]]],
+    list_to_parser: Tuple[Tuple[str, Tuple[int]]],
     filter: List[str],
 ) -> Dict[str, List[Any]]:
     """
