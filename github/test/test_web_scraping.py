@@ -78,7 +78,7 @@ class TestGitHub(unittest.TestCase):
             "blob/master/github/__init__.py"
         )
         self.assertEqual(
-            get_data_file(soup), ("py", (6, 117))
+            get_data_file(soup), ("py", (6, 116))
         )
 
 
