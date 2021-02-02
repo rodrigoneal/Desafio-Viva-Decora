@@ -4,7 +4,7 @@
 
 ## <center>Como Instalar:</center>
 
-    pip install git+https://github.com/rodrigoneal/Desafio-Viva-Decora.git#egg=web-scraping
+    pip install git+https://github.com/rodrigoneal/Desafio-Viva-Decora.git#egg=git-scraping
 
 ## <center>Como Usar:</center>
 
