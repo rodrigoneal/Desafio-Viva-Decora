@@ -19,8 +19,6 @@ def normalize_file(
     :param dados: tuple
     :return: dict
     """
-    print(url)
-    print(data)
     if data:
         nome = url.split("/")[-1]
         path = url
