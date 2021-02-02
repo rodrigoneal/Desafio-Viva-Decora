@@ -1,5 +1,7 @@
 # <center>Desafio-Viva-Decora </center>
 
+[![Build Status](https://travis-ci.com/rodrigoneal/Desafio-Viva-Decora.svg?branch=master)](https://travis-ci.com/rodrigoneal/Desafio-Viva-Decora)
+
 ### Bem Vindo a documentação do Web Scraping.
 
 ## <center>Como Instalar:</center>
