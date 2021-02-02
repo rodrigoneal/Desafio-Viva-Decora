@@ -1,5 +1,4 @@
-"""
-Esse script é usado para refinar os dados do aplicativo.
+"""Esse script é usado para refinar os dados do aplicativo.
 
 Author: Rodrigo Castro
 Date: 1/02/2021

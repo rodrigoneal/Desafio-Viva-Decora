@@ -8,6 +8,5 @@ install:
 script:
   - python -m unittest github.test.test_web_scraping
 
-
 notifications:
   email: false

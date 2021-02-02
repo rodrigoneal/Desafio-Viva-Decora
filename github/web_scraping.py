@@ -1,5 +1,4 @@
-"""
-Esse arquivo é o principal que faz todo o programa funcionar.
+"""Esse arquivo é o principal que faz todo o programa funcionar.
 
 Author: Rodrigo Castro
 Date: 1/02/2021

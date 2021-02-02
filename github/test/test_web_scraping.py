@@ -6,6 +6,7 @@ from github.web_scraping import GitHub
 
 
 class TestGitHub(unittest.TestCase):
+
     """Classe que herda o TestCase."""
 
     def setUp(self):
@@ -28,7 +29,7 @@ class TestGitHub(unittest.TestCase):
             "py",
             (5, 10),
         )
-        filter = [".venv"]
+        filter = ["foo","bar"]
         self.assertEqual(
             sum_value_dict(
                 list_to_parser, filter
