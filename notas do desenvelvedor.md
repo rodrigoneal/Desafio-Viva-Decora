@@ -3,16 +3,16 @@
 ## Bate Papo
 
 **Pergunta**: *Por que o *BeautifulSoup* e não outros como o *scrapy* ou *parsel* ,
-etc...?*<br /> **Resposta**:O _BeautifulSoup_ é a biblioteca que mais conheço e por isso
+etc...?*<br /> **Resposta**:O *BeautifulSoup* é a biblioteca que mais conheço e por isso
 a escolha dela. Eu até pensei em fazer com o scrapy pois vi que ela facilita muito na
 hora de fazer a navegação entre as paginas, mas por ter pouco tempo pra aprender e ver
 que há uma abstração muito grande do código algo que poderia impactar na escolha da vaga
 decidi por manter que eu já tinha uma certa afinidade.
 
 **Pergunta**: *Por que o *httpx* e não o *request* ou outras *libs*?* <br />
-**Resposta**: Diferente da outra resposta eu até conheço mais o _request_ pois já vi
-muita coisa com ele, mas o _request_ é uma _lib_ abandonada e o _httpx_ está ganhando
-popularidade. Por ser uma _lib_ com uma curva de aprendizagem muito curta e eu só usaria
+**Resposta**: Diferente da outra resposta eu até conheço mais o *request* pois já vi
+muita coisa com ele, mas o *request* é uma *lib* abandonada e o *httpx* está ganhando
+popularidade. Por ser uma *lib* com uma curva de aprendizagem muito curta e eu só usaria
 o básico do básico escolhi por ela.
 
 **Pergunta**: *Quais foram as suas maiores dificuldades na hora de desenvolver esse
