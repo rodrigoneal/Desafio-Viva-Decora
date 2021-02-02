@@ -1,3 +1,4 @@
+"""arquivo necessario para tornar o pacote instalavel."""
 from setuptools import setup, find_packages
 
 setup(
