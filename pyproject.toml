@@ -12,4 +12,5 @@ exclude = '''
 
 [build-system]
 requires = ["beautifulsoup4", "httpx", "setuptools"]
+build-backend = "setuptools.build_meta"
 
