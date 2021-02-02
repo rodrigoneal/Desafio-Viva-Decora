@@ -1,10 +1,5 @@
 # type: ignore
-"""
-Esse script é usado para fazer o parser dos arquivos do projeto.
-
-Author: Rodrigo Castro
-Date: 1/02/2021
-"""
+"""Esse script é usado para fazer o parser dos arquivos do projeto."""
 from typing import List, Dict, Tuple, Any
 
 
