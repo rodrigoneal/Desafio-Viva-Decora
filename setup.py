@@ -8,5 +8,5 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=["httpx", "beautifulsoup4"],
-    test_suite='test',
+    test_suite="test",
 )

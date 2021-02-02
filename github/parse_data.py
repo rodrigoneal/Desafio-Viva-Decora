@@ -1,5 +1,6 @@
 # type: ignore
-"""Esse script é usado para fazer o parser dos arquivos do projeto.
+"""
+Esse script é usado para fazer o parser dos arquivos do projeto.
 
 Author: Rodrigo Castro
 Date: 1/02/2021
@@ -9,18 +10,18 @@ from typing import List, Dict, Tuple, Any
 
 def sum_value_dict(
     list_to_parser: Tuple[Tuple[str, Tuple[int]]],
-    filter: List[str],
+    filter_value: List[str],
 ) -> Dict[str, List[Any]]:
     """
     Soma os valores  e salva num dicionario.
 
     :param list_to_parser: list
-    :param filter:list
+    :param filter_value:list
     :return list
     """
     temp_dict: Dict[str, Tuple] = {}
     for key, value in list_to_parser:
-        if key in filter:
+        if key in filter_value:
             key = "outros"
         if key not in temp_dict:
             temp_dict[key] = value
@@ -54,12 +55,12 @@ def get_data_file(
             float(lines[-2])
         )
     except ValueError:
-        try:
+        if lines[7].isdigit:
             linha_byte = [
                 int(float(lines[7])),
                 int(float(lines[-2])),
             ]
-        except:
+        else:
             linha_byte = 0, 0
     result = extensao, linha_byte
     return result

@@ -6,7 +6,6 @@ from github.web_scraping import GitHub
 
 
 class TestGitHub(unittest.TestCase):
-
     """Classe que herda o TestCase."""
 
     def setUp(self):
@@ -21,15 +20,20 @@ class TestGitHub(unittest.TestCase):
             normalize_file(url, data), dict
         )
 
+    def test_se_normalize_retorna_so_url_sem_passar_os_dados(self):
+        """Teste se a função normalize consegue filtrar sem passar o parametro dados."""
+        url = "tree/master/hotel"
+        self.assertEqual(normalize_file(url), {'byte': '', 'ext': '', 'linhas': '', 'nome': 'hotel', 'url': url})
+
     def test_se_sum_value_dict_retorna_os_valores_somados(
-        self,
+            self,
     ):
         """Testa se a função sum_value_dict retorna os valores somados."""
         list_to_parser = ("py", (5, 10)), (
             "py",
             (5, 10),
         )
-        filter = ["foo","bar"]
+        filter = ["foo", "bar"]
         self.assertEqual(
             sum_value_dict(
                 list_to_parser, filter
@@ -38,7 +42,7 @@ class TestGitHub(unittest.TestCase):
         )
 
     def test_se_sum_value_dict_retorna_os_valores_do_filter_em_outros(
-        self,
+            self,
     ):
         """Testa se a função sum_value_dict faz um filtro do valor passado no filtro e retorna uma extensão outros."""
         list_to_parser = ("py", (5, 10)), (
@@ -54,7 +58,7 @@ class TestGitHub(unittest.TestCase):
         )
 
     def test_se_get_data_file_retorna_um_tupla(
-        self,
+            self,
     ):
         """Testa se o get_data_file está retornando uma tupla."""
         self.git.repositorio = (
@@ -68,7 +72,7 @@ class TestGitHub(unittest.TestCase):
         )
 
     def test_se_get_data_file_retorna_os_valores_da_pagina(
-        self,
+            self,
     ):
         """Teste se o get_data_file está pegando os valores certos da pagina."""
         self.git.repositorio = (

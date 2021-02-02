@@ -1,5 +1,4 @@
-"""
-Esse script é usado para refinar os dados do aplicativo.
+"""Esse script é usado para refinar os dados do aplicativo.
 
 Author: Rodrigo Castro
 Date: 1/02/2021
@@ -11,8 +10,7 @@ def normalize_file(
     url: str,
     data: Optional[tuple] = None,
 ) -> Dict[str, Union[str, int]]:
-    """
-    Trata os dados para facilitar na hora de salvar o arquivo.
+    """Trata os dados para facilitar na hora de salvar o arquivo.
 
     :param data: tuple
     :param url:str
