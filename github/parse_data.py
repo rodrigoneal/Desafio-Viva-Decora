@@ -36,15 +36,13 @@ def get_data_file(
     div = soup.find("div", {"class": "text-mono"}).text.strip()
     extensao = soup.find("strong", {"class": "final-path"}).text.split(".")[-1]
     lines = div.split(" ")
-    linha = 0
-    byte = 0
     if lines[0] != "executable" and "lines" in lines:
         linha = int(float(lines[0]))
     elif lines[0] == "executable" and "lines" in lines:
         linha = int(float(lines[7]))
     else:
         linha = 0
-    if lines[-1] == 'KB':
+    if lines[-1] == "KB":
         byte = float(lines[-2]) * 1024
     else:
         byte = float(lines[-2])
