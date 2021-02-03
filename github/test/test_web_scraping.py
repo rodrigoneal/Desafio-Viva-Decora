@@ -111,7 +111,6 @@ class TestGitHub(unittest.TestCase):
         """Teste se a função está calculando certo."""
         total = 3283
         value = 2423
-
         self.assertEqual(round(calculate_percentage(total, value)), 74)
 
     def test_se_save_column_cria_um_arquivo(self):
