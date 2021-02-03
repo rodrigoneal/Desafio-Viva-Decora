@@ -11,8 +11,12 @@ pip install git+https://github.com/rodrigoneal/Desafio-Viva-Decora.git#egg=git-s
 
 ## <center>Como Usar:</center>
 
-from github.web_scraping import GitHub  
- git = GitHub("repositorios.txt") git.main(verbose=True)  
+`from github.web_scraping import GitHub`  
+
+`git = GitHub("repositorios.txt")` 
+
+`git.main(verbose=True)`
+
 Importe a classe GitHub que fica dentro do pacote github.web*scraping. A classe recebe  
 um parâmetro obrigatório que é o arquivo txt com a lista de repositórios do github que  
 serão \_crawlada*.
