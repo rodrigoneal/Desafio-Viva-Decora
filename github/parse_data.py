@@ -21,12 +21,7 @@ def sum_value_dict(
         if key not in temp_dict:
             temp_dict[key] = value
         else:
-            temp_dict[key] = [
-                x + y
-                for x, y in zip(
-                    temp_dict[key], value
-                )
-            ]
+            temp_dict[key] = [x + y for x, y in zip(temp_dict[key], value)]
     return temp_dict
 
 
@@ -38,24 +33,15 @@ def get_data_file(
 
     :param soup: object BeautifulSoup
     """
-    div = soup.find(
-        "div", {"class": "text-mono"}
-    ).text.strip()
-    extensao = soup.find(
-        "strong", {"class": "final-path"}
-    ).text.split(".")[-1]
+    div = soup.find("div", {"class": "text-mono"}).text.strip()
+    extensao = soup.find("strong", {"class": "final-path"}).text.split(".")[-1]
     lines = div.split(" ")
-    try:
-        linha_byte = int(float(lines[0])), int(
-            float(lines[-2])
-        )
-    except ValueError:
-        if lines[7].isdigit:
-            linha_byte = [
-                int(float(lines[7])),
-                int(float(lines[-2])),
-            ]
-        else:
-            linha_byte = 0, 0
+    if lines[0] != "executable" and "lines" in lines:
+        linha_byte = (int(float(lines[0])), float(lines[-2]))
+    elif lines[0] == "executable" and "lines" in lines:
+        linha_byte = (int(float(lines[7])), float(lines[-2]))
+    else:
+        linha_byte = (0, float(lines[-2]))
+    extensao = extensao.replace("~", "")
     result = extensao, linha_byte
     return result

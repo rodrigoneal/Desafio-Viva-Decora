@@ -42,9 +42,7 @@ class GitHub:
         get = httpx.get(url)
         if self.verbose:
             print(get.url)
-        soup = BeautifulSoup(
-            get.text, "html.parser"
-        )
+        soup = BeautifulSoup(get.text, "html.parser")
         return soup
 
     def request_all_links(self):
@@ -53,28 +51,20 @@ class GitHub:
         if self.path.startswith("blob"):
             result = get_data_file(soup)
             self.dados.append(result)
-            normalize = normalize_file(
-                self.path, result
-            )
+            normalize = normalize_file(self.path, result)
             self.diretorio.append(normalize)
         else:
             if self.path != "":
-                normalize = normalize_file(
-                    self.path
-                )
+                normalize = normalize_file(self.path)
                 self.diretorio.append(normalize)
-        spans = soup.find_all(
-            "span", {"class": "css-truncate"}
-        )
+        spans = soup.find_all("span", {"class": "css-truncate"})
         for span in spans:
             links = span.find_all(
                 "a",
                 {"class": "js-navigation-open"},
             )
             for link in links:
-                _split = link["href"].split("/")[
-                    3:
-                ]
+                _split = link["href"].split("/")[3:]
                 self.path = "/".join(_split)
                 self.request_all_links()
 
@@ -85,12 +75,8 @@ class GitHub:
                 self.verbose = verbose
                 self.repositorio = file.strip()
                 self.request_all_links()
-                sum_dict = sum_value_dict(
-                    self.dados, self.filter
-                )
-                save_as_column(
-                    self.repositorio, sum_dict
-                )
+                sum_dict = sum_value_dict(self.dados, self.filter)
+                save_as_column(self.repositorio, sum_dict)
                 save_tree_structure(
                     self.repositorio,
                     self.diretorio,
