@@ -124,7 +124,8 @@ filtrando suas extensões Exemplo: Entrada >>> `[['py', (5, 5)], ['py', (5, 5)]]
 Saída >>>`[{'py':(10, 10)}]` **Parâmetro**: `list_to_parser` **Tipo**:list- Lista com
 os  
 arquivos que serão somados e  
-filtrados. **Parâmetro**: `filter_value` **Tipo**:list- Lista com os arquivos que deverão  
+filtrados. **Parâmetro**: `filter_value` **Tipo**:list- Lista com os arquivos que
+deverão  
 ser  
 ignorados e armazenados como outros .
 
@@ -231,11 +232,11 @@ dicionário com as linguagens de programação mais usadas.
 
 **Parâmetro**: `value` **Tipo**:float- Valor que é calculado para achar a porcentagem.
 
-~~value~~10/~~total~~100 * 100 = 10%
+~~value~~10/~~total~~100 \* 100 = 10%
 
-**Retorna** **int**: Retorna o valor arredondado de value/total * 100
+**Retorna** **int**: Retorna o valor arredondado de value/total \* 100
 
-Função faz um calculo da porcentagem que o valor representa do total. 
+Função faz um calculo da porcentagem que o valor representa do total.
 
 ## Arquivo: `clear_code.py`
 

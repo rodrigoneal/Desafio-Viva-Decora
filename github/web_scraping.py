@@ -15,6 +15,7 @@ from github.clear_code import normalize_file
 
 
 class GitHub:
+
     """Classe que faz a requisição, pega os links e salva."""
 
     def __init__(self, file_txt):
