@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/rodrigoneal/Desafio-Viva-Decora.svg?branch=master)](https://travis-ci.com/rodrigoneal/Desafio-Viva-Decora)  
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c754d27e89014840b641f3491430f2f4)](https://www.codacy.com/gh/rodrigoneal/Desafio-Viva-Decora/dashboard?utm_source=github.com&utm_medium=referral&utm_content=rodrigoneal/Desafio-Viva-Decora&utm_campaign=Badge_Grade)
-
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/c754d27e89014840b641f3491430f2f4)](https://www.codacy.com/gh/rodrigoneal/Desafio-Viva-Decora/dashboard?utm_source=github.com&utm_medium=referral&utm_content=rodrigoneal/Desafio-Viva-Decora&utm_campaign=Badge_Coverage)
 ### Bem Vindo a documentação do Web Scraping
 
 ## <center>Como Instalar:</center>
