@@ -52,12 +52,12 @@ def save_as_column(repository: str, path_dict: dict) -> None:
             byte = v[1]
             if linha > 0 and byte > 0:
                 file.write(
-                    f"{tipo:<15}|{linha:^10}({calculate_percentage(linha, sum_lines)} %)|{int(byte)}({calculate_percentage(sum_bytes, byte)} %) "
+                    f"{tipo:<15}|{linha:^10}({calculate_percentage(sum_lines, linha)} %)|{int(byte)}({calculate_percentage(sum_bytes, byte)} %) "
                     + "\n"
                 )
             elif linha > 0 and byte == 0:
                 file.write(
-                    f"{tipo:<15}|{linha:^10}({calculate_percentage(linha,sum_bytes)} %)|{int(byte)}(0 %) "
+                    f"{tipo:<15}|{linha:^10}({calculate_percentage(sum_lines,linha)} %)|{int(byte)}(0 %) "
                     + "\n"
                 )
             elif linha == 0 and byte > 0:
