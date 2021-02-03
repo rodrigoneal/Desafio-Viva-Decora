@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.com/rodrigoneal/Desafio-Viva-Decora.svg?branch=master)](https://travis-ci.com/rodrigoneal/Desafio-Viva-Decora)  
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c754d27e89014840b641f3491430f2f4)](https://www.codacy.com/gh/rodrigoneal/Desafio-Viva-Decora/dashboard?utm_source=github.com&utm_medium=referral&utm_content=rodrigoneal/Desafio-Viva-Decora&utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/c754d27e89014840b641f3491430f2f4)](https://www.codacy.com/gh/rodrigoneal/Desafio-Viva-Decora/dashboard?utm_source=github.com&utm_medium=referral&utm_content=rodrigoneal/Desafio-Viva-Decora&utm_campaign=Badge_Coverage)
+
 ### Bem Vindo a documentação do Web Scraping
 
 ## <center>Como Instalar:</center>
@@ -11,9 +12,9 @@ pip install git+https://github.com/rodrigoneal/Desafio-Viva-Decora.git#egg=git-s
 
 ## <center>Como Usar:</center>
 
-`from github.web_scraping import GitHub`  
+`from github.web_scraping import GitHub`
 
-`git = GitHub("repositorios.txt")` 
+`git = GitHub("repositorios.txt")`
 
 `git.main(verbose=True)`
 
@@ -266,14 +267,12 @@ O primeiro valor é a extensão do arquivo. O segundo é uma tupla, no índice [
 pelo  
 arquivo.
 
-
 ## Observações do projeto
-1 - O valor que é gravado no arquivo txt é arredondado por isso o valor pode ficar menor ou maior que 100%
-dependendo da ocasião. Fiz essa escolha pra ficar mais legivel.
+
+1 - O valor que é gravado no arquivo txt é arredondado por isso o valor pode ficar menor
+ou maior que 100% dependendo da ocasião. Fiz essa escolha pra ficar mais legivel.
 
 2 - Os KB são convertido para Byte.
-
-
 
 ### Notas do radon
 
