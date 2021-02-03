@@ -1,4 +1,5 @@
 """Esse arquivo é o principal que faz todo o programa funcionar."""
+import os
 
 import httpx
 from bs4 import BeautifulSoup
@@ -15,7 +16,6 @@ from github.clear_code import normalize_file
 
 
 class GitHub:
-
     """Classe que faz a requisição, pega os links e salva."""
 
     def __init__(self, file_txt):
@@ -71,6 +71,8 @@ class GitHub:
 
     def main(self, verbose=False):
         """Metodo que inicializa a programa."""
+        if os.path.getsize(self.file_txt) == 0:
+            raise OSError("the file does not exist or is inaccessible")
         with open(self.file_txt, "r") as files:
             for file in files.readlines():
                 self.verbose = verbose
