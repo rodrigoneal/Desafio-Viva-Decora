@@ -3,7 +3,7 @@
 
 def calculate_percentage(total: int, value: float):
     """Calcula a porcentagem do valores."""
-    result = round((value / total) * 100)
+    result = (value / total) * 100
     return result
 
 
@@ -52,19 +52,19 @@ def save_as_column(repository: str, path_dict: dict) -> None:
             byte = v[1]
             if linha > 0 and byte > 0:
                 file.write(
-                    f"{tipo:<15}|{linha:^10}({calculate_percentage(sum_lines, linha)} %)|{int(byte)}({calculate_percentage(sum_bytes, byte)} %) "
+                    f"{tipo:<15}|{linha:^10}({round(calculate_percentage(sum_lines, linha))} %)|{int(byte)}({round(calculate_percentage(sum_bytes, byte))} %)"
                     + "\n"
                 )
             elif linha > 0 and byte == 0:
                 file.write(
-                    f"{tipo:<15}|{linha:^10}({calculate_percentage(sum_lines,linha)} %)|{int(byte)}(0 %) "
+                    f"{tipo:<15}|{linha:^10}({round(calculate_percentage(sum_lines,linha))} %)|{int(byte)}(0 %)"
                     + "\n"
                 )
             elif linha == 0 and byte > 0:
                 file.write(
-                    f"{tipo:<15}|{linha:^10} (0 %)|{int(byte)}(0 %) " + "\n"
+                    f"{tipo:<15}|{linha:^10} (0 %)|{round(byte)}({round(calculate_percentage(sum_bytes, byte))} %)" + "\n"
                 )
             else:
                 file.write(
-                    f"{tipo:<10}|{linha:^15}(0 %)|{int(byte):>10}(0 %)" + "\n"
+                    f"{tipo:<10}|{linha:^15}(0 %)|{byte:>10}(0 %)" + "\n"
                 )
