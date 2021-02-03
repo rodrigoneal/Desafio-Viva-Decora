@@ -31,7 +31,7 @@ class TestGitHub(unittest.TestCase):
         self.assertIsInstance(normalize_file(url, data), dict)
 
     def test_se_normalize_retorna_so_url_sem_passar_os_dados(
-            self,
+        self,
     ):
         """Teste se a função normalize consegue filtrar sem passar o parametro dados."""
         url = "tree/master/hotel"
@@ -47,7 +47,7 @@ class TestGitHub(unittest.TestCase):
         )
 
     def test_se_sum_value_dict_retorna_os_valores_somados(
-            self,
+        self,
     ):
         """Testa se a função sum_value_dict retorna os valores somados."""
         list_to_parser = ("py", (5, 10)), (
@@ -61,7 +61,7 @@ class TestGitHub(unittest.TestCase):
         )
 
     def test_se_sum_value_dict_retorna_os_valores_do_filter_em_outros(
-            self,
+        self,
     ):
         """Testa se a função sum_value_dict faz um filtro do valor passado no filtro e retorna uma extensão outros."""
         list_to_parser = ("py", (5, 10)), (
@@ -75,7 +75,7 @@ class TestGitHub(unittest.TestCase):
         )
 
     def test_se_get_data_file_retorna_um_tupla(
-            self,
+        self,
     ):
         """Testa se o get_data_file está retornando uma tupla."""
         self.git.repositorio = "rodrigoneal/Desafio-Viva-Decora"
@@ -83,7 +83,7 @@ class TestGitHub(unittest.TestCase):
         self.assertIsInstance(get_data_file(soup), tuple)
 
     def test_se_get_data_file_retorna_os_valores_da_pagina(
-            self,
+        self,
     ):
         """Teste se o get_data_file está pegando os valores certos da pagina."""
         self.git.repositorio = "rodrigoneal/hoteis_api"
@@ -91,7 +91,7 @@ class TestGitHub(unittest.TestCase):
         self.assertEqual(get_data_file(soup), ("py", (9, 192)))
 
     def test_se_save_tree_structure_cria_arquivo(
-            self,
+        self,
     ):
         """Testar se o função está gravando no arquivo."""
         repositorio = self.git.repositorio = "rodrigoneal/hoteis_api"
@@ -112,7 +112,7 @@ class TestGitHub(unittest.TestCase):
         total = 3283
         value = 2423
 
-        self.assertEqual(calculate_percentage(total, value), 74)
+        self.assertEqual(round(calculate_percentage(total, value)), 74)
 
     def test_se_save_column_cria_um_arquivo(self):
         """Testa se a função save_column cria um arquivo."""
