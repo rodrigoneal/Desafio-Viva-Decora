@@ -266,6 +266,15 @@ O primeiro valor é a extensão do arquivo. O segundo é uma tupla, no índice [
 pelo  
 arquivo.
 
+
+## Observações do projeto
+1 - O valor que é gravado no arquivo txt é arredondado por isso o valor pode ficar menor ou maior que 100%
+dependendo da ocasião. Fiz essa escolha pra ficar mais legivel.
+
+2 - Os KB são convertido para Byte.
+
+
+
 ### Notas do radon
 
 #### cc
