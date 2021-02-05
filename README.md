@@ -51,7 +51,10 @@ rodrigoneal/hoteis_api
 
 Obrigatoriamente o arquivo precisa terminar com .txt e formatado da seguinte maneira:
 
-rodrigoneal/hoteis_api SambitAcharya/Mini-Projects frontpressorg/frontpress  
+rodrigoneal/hoteis_api <br/> 
+SambitAcharya/Mini-Projects <br/>
+frontpressorg/frontpress  
+
 Só utilize "/" entre o nome do usuário e o nome do repositório, evite colocar espaços  
 desnecessários.
 

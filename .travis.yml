@@ -2,15 +2,19 @@ language: python
 
 python: 3.7
 
+env:
+  - codacy = CODACY
+
 install:
   - pip install -r requirements.txt
-  - pip install codecov
 
 script:
-  - python -m unittest github.test.test_web_scraping
+  - coverage run -m unittest discover
 
 after_success:
-  - codecov
+  - coverage xml
+  - CODACY_PROJECT_TOKEN = codacy
+  - python-codacy-coverage -r coverage.xml
 
 notifications:
   email: false
